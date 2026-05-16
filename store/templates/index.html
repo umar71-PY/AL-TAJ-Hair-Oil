@@ -1,0 +1,2832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AL-TAJ Hair Oil — Nature's Crown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+/* ============================================================
+   CSS VARIABLES & RESET
+============================================================ */
+:root {
+  --green-deep:    #0d2b1f;
+  --green-mid:     #1a4a2e;
+  --green-light:   #2d6e47;
+  --gold:          #c9a84c;
+  --gold-light:    #e8c97a;
+  --gold-pale:     #f5e6b8;
+  --cream:         #f7f2e8;
+  --cream-dark:    #ede5d0;
+  --black:         #0a0a0a;
+  --black-soft:    #141414;
+  --text-dark:     #1c1c1c;
+  --text-muted:    #6b6351;
+  --white:         #ffffff;
+  --glass-bg:      rgba(13, 43, 31, 0.55);
+  --glass-border:  rgba(201, 168, 76, 0.25);
+  --shadow-gold:   0 20px 60px rgba(201, 168, 76, 0.18);
+  --shadow-deep:   0 8px 40px rgba(10, 10, 10, 0.35);
+  --radius-card:   16px;
+  --radius-btn:    50px;
+  --font-display:  'Cormorant Garamond', serif;
+  --font-body:     'Jost', sans-serif;
+  --transition:    all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background-color: var(--cream);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  cursor: default;
+}
+
+img { display: block; max-width: 100%; }
+a  { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: var(--font-body); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--cream-dark); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+/* ============================================================
+   ANNOUNCEMENT BAR + MARQUEE
+============================================================ */
+.announcement-bar {
+  background: var(--green-deep);
+  color: var(--gold-light);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 9px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  z-index: 200;
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 0;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track span {
+  padding-right: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.marquee-track span i {
+  color: var(--gold);
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   NAVBAR — GLASSMORPHISM
+============================================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4vw;
+  height: 72px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.25);
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  background: rgba(10, 25, 16, 0.82);
+  height: 64px;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 2px;
+}
+
+.nav-logo .brand-name {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-logo .brand-tagline {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--cream);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 3px;
+  transition: var(--transition);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.35s ease;
+}
+
+.nav-links a:hover { color: var(--gold-light); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.btn-cart {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--green-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border-radius: var(--radius-btn);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+}
+
+.btn-cart::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-cart:hover::before { opacity: 1; }
+.btn-cart:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.45); }
+.btn-cart span { position: relative; z-index: 1; }
+.btn-cart i { font-size: 1rem; position: relative; z-index: 1; }
+
+.cart-badge {
+  background: var(--green-deep);
+  color: var(--gold);
+  font-size: 0.6rem;
+  font-weight: 700;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+  transition: transform 0.3s;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 28px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--gold-light);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(10,25,16,0.97);
+  z-index: 998;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+
+/* ============================================================
+   HERO SECTION
+============================================================ */
+.hero {
+  min-height: 92vh;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(45, 110, 71, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+    linear-gradient(160deg, var(--green-deep) 0%, #0a1f13 50%, #071510 100%);
+  display: flex;
+  align-items: center;
+  padding: 6vw 8vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 560px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 7vw, 6rem);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 400;
+}
+
+.hero p {
+  font-size: 1rem;
+  color: rgba(247, 242, 232, 0.7);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  max-width: 440px;
+  font-weight: 300;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--green-deep);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 15px 32px;
+  border-radius: var(--radius-btn);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-btn);
+  background: radial-gradient(circle at center, rgba(255,255,255,0.25) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.btn-primary:hover::after { opacity: 1; transform: scale(2); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 50px rgba(201,168,76,0.45); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  border-radius: var(--radius-btn);
+  transition: var(--transition);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background: rgba(201,168,76,0.1);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.hero-image-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding-left: 4rem;
+}
+
+.hero-ring {
+  position: relative;
+  width: min(400px, 44vw);
+  aspect-ratio: 1;
+}
+
+.hero-ring::before {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  animation: ring-pulse 4s ease-in-out infinite;
+}
+
+.hero-ring::after {
+  content: '';
+  position: absolute;
+  inset: -35px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.08);
+  animation: ring-pulse 4s ease-in-out 1s infinite;
+}
+
+@keyframes ring-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.03); opacity: 0.6; }
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(201, 168, 76, 0.35);
+  box-shadow: 0 0 80px rgba(201,168,76,0.2), 0 30px 80px rgba(0,0,0,0.5);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+
+/* ============================================================
+   STATS BAND
+============================================================ */
+.stats-band {
+  background: var(--green-mid);
+  border-top: 1px solid rgba(201,168,76,0.15);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  padding: 2rem 8vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  border-right: 1px solid rgba(201,168,76,0.12);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  line-height: 1;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.5);
+  margin-top: 4px;
+  display: block;
+  font-weight: 300;
+}
+
+/* ============================================================
+   SECTION SHARED STYLES
+============================================================ */
+section { padding: 7rem 8vw; }
+
+.section-header {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 4.5rem;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.section-eyebrow::before, .section-eyebrow::after {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: var(--green-deep);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--green-light);
+}
+
+.section-sub {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* ============================================================
+   INGREDIENTS / FEATURES
+============================================================ */
+.features-section {
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(45,110,71,0.06) 0%, transparent 60%),
+    var(--cream);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.feature-card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(201,168,76,0.12);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-gold);
+  border-color: rgba(201,168,76,0.3);
+}
+
+.feature-card:hover::before { transform: scaleX(1); }
+
+.feature-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  color: var(--green-light);
+}
+
+.feature-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--green-deep);
+  margin-bottom: 0.7rem;
+}
+
+.feature-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ============================================================
+   PRODUCTS SECTION
+============================================================ */
+.products-section {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(13,43,31,0.04) 0%, transparent 55%),
+    var(--cream-dark);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.1);
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-gold);
+  border-color: rgba(201,168,76,0.35);
+}
+
+.product-img-wrap {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.product-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.product-card:hover .product-img-wrap img { transform: scale(1.08); }
+
+.product-badge {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: var(--green-deep);
+  color: var(--gold);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.product-quick-view {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(0deg, rgba(13,43,31,0.9) 0%, transparent 100%);
+  color: var(--gold-light);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1.5rem 1rem 0.8rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: var(--transition);
+}
+
+.product-card:hover .product-quick-view { opacity: 1; transform: translateY(0); }
+
+.product-info {
+  padding: 1.4rem 1.4rem 1.6rem;
+}
+
+.product-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--green-deep);
+  margin-bottom: 0.35rem;
+}
+
+.product-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.9rem;
+}
+
+.product-stars {
+  color: var(--gold);
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 2px;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.product-price {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--green-deep);
+}
+
+.product-price small {
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  font-weight: 300;
+  display: block;
+  line-height: 1;
+}
+
+.btn-add-cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-deep);
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border-radius: var(--radius-btn);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-add-cart::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg, transparent, rgba(201,168,76,0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  animation: spin 3s linear infinite;
+}
+
+.btn-add-cart:hover {
+  background: var(--green-light);
+  color: var(--gold-light);
+  transform: scale(1.05);
+  box-shadow: 0 6px 24px rgba(13,43,31,0.35);
+}
+
+.btn-add-cart:hover::after { opacity: 1; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   STORY SECTION (two-col)
+============================================================ */
+.story-section {
+  background: var(--green-deep);
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  padding-left: 8vw;
+  padding-right: 0;
+  overflow: hidden;
+}
+
+.story-content {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.story-content .section-eyebrow { color: var(--gold); }
+.story-content .section-eyebrow::before,
+.story-content .section-eyebrow::after { background: var(--gold); }
+
+.story-content .section-title {
+  color: var(--cream);
+}
+
+.story-content .section-title em { color: var(--gold-light); }
+
+.story-content p {
+  font-size: 0.95rem;
+  color: rgba(247,242,232,0.65);
+  line-height: 1.9;
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+  max-width: 480px;
+}
+
+.story-content .btn-primary { margin-top: 0.5rem; }
+
+.story-image-panel {
+  flex: 1;
+  height: 580px;
+  position: relative;
+  min-width: 0;
+}
+
+.story-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--green-deep) 0%, transparent 40%);
+}
+
+/* ============================================================
+   TESTIMONIALS
+============================================================ */
+.testimonials-section {
+  background: var(--cream);
+  text-align: center;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 0;
+}
+
+.testi-card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(201,168,76,0.12);
+  transition: var(--transition);
+  text-align: left;
+}
+
+.testi-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-gold);
+  border-color: rgba(201,168,76,0.3);
+}
+
+.testi-stars {
+  color: var(--gold);
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+
+.testi-text {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testi-avatar {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold-pale);
+}
+
+.testi-name {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--green-deep);
+  display: block;
+}
+
+.testi-location {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 2px;
+  font-weight: 300;
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  background: var(--black-soft);
+  color: rgba(247,242,232,0.6);
+  padding: 5rem 8vw 2.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+
+.footer-brand .brand-name {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  margin: 1rem 0 1.5rem;
+  max-width: 280px;
+  font-weight: 300;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-link {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.25);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  background: var(--gold);
+  color: var(--green-deep);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.2rem;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-col li a {
+  font-size: 0.82rem;
+  color: rgba(247,242,232,0.5);
+  font-weight: 300;
+  transition: color 0.3s;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.footer-col li a:hover { color: var(--gold-light); }
+
+.footer-newsletter h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.footer-newsletter p {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+}
+
+.newsletter-form {
+  display: flex;
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: var(--radius-btn);
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+}
+
+.newsletter-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  padding: 11px 16px;
+  font-weight: 300;
+}
+
+.newsletter-form input::placeholder { color: rgba(247,242,232,0.3); }
+
+.newsletter-form button {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--green-deep);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0 18px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.newsletter-form button:hover { filter: brightness(1.1); }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-bottom p {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
+.footer-bottom span {
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+.payment-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.payment-badge {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.5);
+  font-weight: 400;
+}
+
+/* ============================================================
+   CART OFFCANVAS
+============================================================ */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(3px);
+}
+
+.cart-overlay.open { opacity: 1; pointer-events: all; }
+
+.cart-drawer {
+  position: fixed;
+  top: 0; right: 0;
+  width: min(420px, 95vw);
+  height: 100%;
+  background: var(--white);
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: -10px 0 60px rgba(0,0,0,0.3);
+}
+
+.cart-drawer.open { transform: translateX(0); }
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.8rem 1.8rem 1.2rem;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+}
+
+.cart-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+}
+
+.cart-header h2 span {
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 400;
+  margin-left: 0.5rem;
+}
+
+.btn-close-cart {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold-light);
+  font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.btn-close-cart:hover { background: rgba(201,168,76,0.15); transform: rotate(90deg); }
+
+.cart-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem 1.8rem;
+}
+
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+.cart-empty-icon { font-size: 3.5rem; color: var(--green-light); opacity: 0.4; }
+
+.cart-empty p {
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+  font-weight: 300;
+}
+
+.cart-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.cart-item-img {
+  width: 80px; height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(201,168,76,0.15);
+}
+
+.cart-item-details { flex: 1; min-width: 0; }
+
+.cart-item-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--green-deep);
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-item-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.7rem;
+}
+
+.cart-qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.qty-btn {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(13,43,31,0.2);
+  color: var(--green-deep);
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.qty-btn:hover {
+  background: var(--green-deep);
+  color: var(--gold);
+  border-color: var(--green-deep);
+}
+
+.qty-val {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  min-width: 20px;
+  text-align: center;
+}
+
+.cart-item-price {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--green-deep);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.btn-remove {
+  display: block;
+  font-size: 0.65rem;
+  color: #c0392b;
+  text-align: right;
+  margin-top: 4px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+  font-weight: 400;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-remove:hover { opacity: 0.7; }
+
+.cart-footer {
+  padding: 1.5rem 1.8rem 2rem;
+  border-top: 1px solid rgba(201,168,76,0.15);
+  background: var(--cream);
+}
+
+.cart-subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.cart-subtotal label {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.cart-total-price {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--green-deep);
+}
+
+.cart-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.btn-checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--green-deep), var(--green-light));
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 16px;
+  border-radius: var(--radius-btn);
+  transition: var(--transition);
+  box-shadow: 0 6px 30px rgba(13,43,31,0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-checkout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--green-light), var(--green-deep));
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.btn-checkout:hover::before { opacity: 1; }
+.btn-checkout:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(13,43,31,0.45); }
+.btn-checkout span { position: relative; z-index: 1; }
+
+/* ============================================================
+   PRODUCT MODAL
+============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 18, 11, 0.8);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(6px);
+}
+
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.product-modal {
+  background: var(--white);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 30px 100px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.modal-overlay.open .product-modal {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px; right: 18px;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.07);
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.modal-close:hover { background: var(--green-deep); color: var(--gold-light); transform: rotate(90deg); }
+
+.modal-img-col {
+  width: 42%;
+  flex-shrink: 0;
+  background: var(--cream);
+  border-radius: 20px 0 0 20px;
+  overflow: hidden;
+}
+
+.modal-img-col img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.modal-content-col {
+  flex: 1;
+  padding: 2.8rem 2.4rem;
+  overflow-y: auto;
+}
+
+.modal-badge {
+  display: inline-block;
+  background: var(--green-deep);
+  color: var(--gold);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--green-deep);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  font-weight: 300;
+  margin-bottom: 0.8rem;
+}
+
+.modal-stars {
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin-bottom: 1.2rem;
+}
+
+.modal-price {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--green-deep);
+  margin-bottom: 1.4rem;
+}
+
+.modal-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.modal-how-to h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--green-deep);
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.modal-how-to ol {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.modal-how-to ol li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.modal-how-to ol li::before {
+  content: attr(data-n);
+  background: var(--green-deep);
+  color: var(--gold);
+  font-size: 0.65rem;
+  font-weight: 600;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.modal-atc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--green-deep);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 16px;
+  border-radius: var(--radius-btn);
+  transition: var(--transition);
+  box-shadow: var(--shadow-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-atc-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.3) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.5s ease;
+}
+
+.modal-atc-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 50px rgba(201,168,76,0.45); }
+.modal-atc-btn:hover::after { opacity: 1; transform: scale(2); }
+
+/* ============================================================
+   CHECKOUT MODAL
+============================================================ */
+.checkout-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7,18,11,0.85);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(8px);
+}
+
+.checkout-overlay.open { opacity: 1; pointer-events: all; }
+
+.checkout-modal {
+  background: var(--white);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 30px 100px rgba(0,0,0,0.6);
+  position: relative;
+}
+
+.checkout-overlay.open .checkout-modal { transform: scale(1) translateY(0); }
+
+.checkout-header {
+  background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+  padding: 2rem 2.2rem 1.6rem;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkout-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+.checkout-header h2 span {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.btn-close-checkout {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold-light);
+  font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.btn-close-checkout:hover { background: rgba(201,168,76,0.15); transform: rotate(90deg); }
+
+.checkout-body {
+  padding: 2.2rem;
+}
+
+.checkout-summary {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.8rem;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.checkout-summary h4 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--green-deep);
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.checkout-summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.checkout-summary-items span { display: flex; justify-content: space-between; }
+
+.checkout-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px solid rgba(201,168,76,0.2);
+  padding-top: 0.7rem;
+}
+
+.checkout-total-row label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.checkout-total-row strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--green-deep);
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  background: var(--cream);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 12px 16px;
+  outline: none;
+  transition: var(--transition);
+  font-weight: 300;
+}
+
+.form-control:focus {
+  border-color: var(--gold);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+}
+
+.payment-options {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.payment-opt {
+  flex: 1;
+  position: relative;
+}
+
+.payment-opt input { position: absolute; opacity: 0; }
+
+.payment-opt label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px;
+  border: 2px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--cream);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  color: var(--text-muted);
+}
+
+.payment-opt label i { font-size: 1.5rem; color: var(--green-light); }
+
+.payment-opt input:checked + label {
+  border-color: var(--green-deep);
+  background: rgba(13,43,31,0.05);
+  color: var(--green-deep);
+}
+
+.btn-place-order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--green-deep), var(--green-light));
+  color: var(--gold-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 17px;
+  border-radius: var(--radius-btn);
+  transition: var(--transition);
+  box-shadow: 0 8px 30px rgba(13,43,31,0.3);
+  margin-top: 1.5rem;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+}
+
+.btn-place-order:hover { transform: translateY(-2px); box-shadow: 0 14px 45px rgba(13,43,31,0.45); }
+
+/* ============================================================
+   SUCCESS TOAST
+============================================================ */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--green-deep);
+  color: var(--gold-light);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  padding: 14px 28px;
+  border-radius: var(--radius-btn);
+  border: 1px solid rgba(201,168,76,0.3);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  white-space: nowrap;
+}
+
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 1100px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .hero { flex-direction: column; text-align: center; padding-top: 4rem; padding-bottom: 4rem; gap: 3rem; }
+  .hero-content { max-width: 100%; }
+  .hero-cta { justify-content: center; }
+  .hero-image-wrap { padding-left: 0; justify-content: center; }
+  .hero-ring { width: min(300px, 70vw); }
+  .story-section { flex-direction: column; padding-right: 8vw; }
+  .story-image-panel { width: 100%; height: 340px; }
+  .story-img-overlay { background: linear-gradient(0deg, var(--green-deep) 0%, transparent 40%); }
+  .stats-band { grid-template-columns: repeat(2, 1fr); }
+  .stats-band .stat-item:nth-child(2) { border-right: none; }
+  .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .product-modal { flex-direction: column; }
+  .modal-img-col { width: 100%; height: 280px; border-radius: 20px 20px 0 0; }
+}
+
+@media (max-width: 680px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .products-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  section { padding: 4.5rem 6vw; }
+  .hero { min-height: auto; padding: 3rem 6vw; }
+  .stats-band { padding: 1.5rem 6vw; }
+  .story-section { padding: 4.5rem 6vw; }
+  .checkout-body { padding: 1.5rem; }
+  .modal-content-col { padding: 1.8rem 1.6rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="announcement-bar" aria-label="Promotions">
+  <div class="marquee-track" id="marqueeTrack">
+    <span><i class="bi bi-stars"></i> Free Delivery on Orders Over Rs. 1,500</span>
+    <span><i class="bi bi-stars"></i> 100% Natural Ingredients — No Harmful Chemicals</span>
+    <span><i class="bi bi-stars"></i> Trusted by 50,000+ Customers Across Pakistan</span>
+    <span><i class="bi bi-stars"></i> New: Amla Gold Formula — Now Available</span>
+    <span><i class="bi bi-stars"></i> Free Delivery on Orders Over Rs. 1,500</span>
+    <span><i class="bi bi-stars"></i> 100% Natural Ingredients — No Harmful Chemicals</span>
+    <span><i class="bi bi-stars"></i> Trusted by 50,000+ Customers Across Pakistan</span>
+    <span><i class="bi bi-stars"></i> New: Amla Gold Formula — Now Available</span>
+  </div>
+</div>
+
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="brand-name">Al-Taj</span>
+    <span class="brand-tagline">Hair Oil · Since 1998</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#products">Collection</a></li>
+    <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <button class="btn-cart" id="cartBtn" aria-label="Open cart">
+      <i class="bi bi-bag"></i>
+      <span>Cart</span>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#products" class="mobile-link">Collection</a>
+  <a href="#benefits" class="mobile-link">Benefits</a>
+  <a href="#story" class="mobile-link">Our Story</a>
+  <a href="#testimonials" class="mobile-link">Reviews</a>
+</div>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Nature's Finest Formulas</div>
+    <h1>Wear Your<br>Crown <em>Beautifully</em></h1>
+    <p>Ancient botanical wisdom, perfected for modern hair. Al-Taj Hair Oil fuses the finest natural oils — cold-pressed, pure, and potent — to transform every strand into silk.</p>
+    <div class="hero-cta">
+      <a href="#products" class="btn-primary">
+        <span>Explore Collection</span>
+        <i class="bi bi-arrow-right"></i>
+      </a>
+      <a href="#story" class="btn-secondary">
+        <span>Our Heritage</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-image-wrap">
+    <div class="hero-ring">
+      <img
+        class="hero-img"
+        src="https://images.unsplash.com/photo-1617897903246-719242758050?w=800&q=80"
+        alt="Al-Taj Hair Oil luxury bottle"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="stat-item">
+    <span class="stat-num">50K+</span>
+    <span class="stat-label">Happy Customers</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">25+</span>
+    <span class="stat-label">Years of Heritage</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">100%</span>
+    <span class="stat-label">Natural Ingredients</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">4</span>
+    <span class="stat-label">Signature Formulas</span>
+  </div>
+</div>
+
+<section class="features-section" id="benefits">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Why Al-Taj</div>
+    <h2 class="section-title">Crafted with <em>Intention</em></h2>
+    <p class="section-sub">Every drop is a marriage of ancient botany and modern science — no shortcuts, no compromises.</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon"><i class="bi bi-feather"></i></div>
+      <h3>Cold-Pressed Purity</h3>
+      <p>We cold-press our botanicals at controlled temperatures to preserve every bioactive compound, ensuring maximum potency reaches your scalp.</p>
+    </div>
+    <div class="feature-card reveal" style="transition-delay:0.1s">
+      <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+      <h3>Dermatologist Tested</h3>
+      <p>Every formula passes rigorous dermatological testing. Suitable for all hair types — from fine and fragile to thick and coarse.</p>
+    </div>
+    <div class="feature-card reveal" style="transition-delay:0.2s">
+      <div class="feature-icon"><i class="bi bi-slash-circle"></i></div>
+      <h3>Zero Harmful Chemicals</h3>
+      <p>Free from parabens, sulfates, mineral oils, and synthetic fragrances. Pure botanical goodness, nothing more, nothing less.</p>
+    </div>
+    <div class="feature-card reveal" style="transition-delay:0.3s">
+      <div class="feature-icon"><i class="bi bi-tree"></i></div>
+      <h3>Sustainably Sourced</h3>
+      <p>Our ingredients are ethically sourced from certified organic farms across the subcontinent, supporting local farming communities.</p>
+    </div>
+    <div class="feature-card reveal" style="transition-delay:0.4s">
+      <div class="feature-icon"><i class="bi bi-stars"></i></div>
+      <h3>Visible Results in 30 Days</h3>
+      <p>Clinical observations show measurable improvements in hair strength, shine, and density within just four weeks of consistent use.</p>
+    </div>
+    <div class="feature-card reveal" style="transition-delay:0.5s">
+      <div class="feature-icon"><i class="bi bi-box2-heart"></i></div>
+      <h3>Luxury Packaging</h3>
+      <p>Housed in dark-glass bottles that protect the oil from UV degradation, keeping your formula fresh and potent until the last drop.</p>
+    </div>
+  </div>
+</section>
+
+<section class="products-section" id="products">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">The Collection</div>
+    <h2 class="section-title">Find Your <em>Perfect Formula</em></h2>
+    <p class="section-sub">Four masterfully blended oils, each targeting a unique hair concern — choose what your crown deserves.</p>
+  </div>
+
+  <div class="products-grid" id="productsGrid">
+    </div>
+</section>
+
+<section class="story-section" id="story">
+  <div class="story-content">
+    <div class="section-eyebrow">Our Heritage</div>
+    <h2 class="section-title">A Crown Built on<br><em>25 Years</em> of Trust</h2>
+    <p>In 1998, in the heart of Multan, a master herbalist began blending oils passed down through seven generations of his family. His secret? Patience, purity, and a deep reverence for what nature provides.</p>
+    <p>Today, Al-Taj Hair Oil carries that same philosophy into every bottle — a bridge between ancestral wisdom and the demands of modern hair care. We don't follow trends. We set them.</p>
+    <a href="#products" class="btn-primary">Discover Our Oils</a>
+  </div>
+
+  <div class="story-image-panel">
+    <img
+      class="story-img"
+      src="https://images.unsplash.com/photo-1556760544-74068565f05c?w=900&q=80"
+      alt="Botanical ingredients arranged elegantly"
+    />
+    <div class="story-img-overlay"></div>
+  </div>
+</section>
+
+<section class="testimonials-section" id="testimonials">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Testimonials</div>
+    <h2 class="section-title">Loved by <em>Thousands</em></h2>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+      <p class="testi-text">"My hair was thinning badly after my second child. After two months of Al-Taj Onion Oil, I genuinely cannot believe the regrowth. My hairdresser noticed before I even told her."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80" alt="Sana Mirza" />
+        <div>
+          <span class="testi-name">Sana Mirza</span>
+          <span class="testi-location">Lahore, Punjab</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal" style="transition-delay:0.15s">
+      <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+      <p class="testi-text">"I've spent thousands on salon treatments. Nothing has worked like Al-Taj Argan Oil. My hair feels like I just stepped out of a blowout, every single morning."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80" alt="Zara Ahmed" />
+        <div>
+          <span class="testi-name">Zara Ahmed</span>
+          <span class="testi-location">Karachi, Sindh</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal" style="transition-delay:0.3s">
+      <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+      <p class="testi-text">"The Herbal blend is extraordinary. It fixed my dandruff problem in under three weeks. The scent is divine too — jasmine and herbs. I gift it to every woman I love."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&q=80" alt="Nimra Khan" />
+        <div>
+          <span class="testi-name">Nimra Khan</span>
+          <span class="testi-location">Islamabad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="brand-name">Al-Taj Hair Oil</span>
+      <span style="font-size:0.65rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;font-weight:400;">Nature's Crown — Since 1998</span>
+      <p>Rooted in ancient botanical wisdom, refined for the modern woman. Every bottle is a promise: pure, potent, and made with love.</p>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="social-link" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        <a href="#" class="social-link" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">The Collection</a></li>
+        <li><a href="#">Ingredients</a></li>
+        <li><a href="#">Stockists</a></li>
+        <li><a href="#">Press &amp; Media</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="javascript:void(0)" onclick="openPolicyModal('faqModal')">FAQ</a></li>
+        <li><a href="javascript:void(0)" onclick="openPolicyModal('shippingModal')">Shipping Policy</a></li>
+        <li><a href="javascript:void(0)" onclick="openPolicyModal('returnModal')">Returns & Exchanges</a></li>
+        <li><a href="https://www.tcsexpress.com/tracking" target="_blank">Track Your Order</a></li>
+        <li><a href="javascript:void(0)" onclick="openPolicyModal('contactModal')">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-newsletter">
+      <h4>Join the Inner Circle</h4>
+      <p>Receive exclusive rituals, early access to new formulas, and members-only offers straight to your inbox.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com" aria-label="Email for newsletter" />
+        <button type="button" aria-label="Subscribe">Join</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Al-Taj Hair Oil. Crafted with <i class="bi bi-suit-heart-fill text-danger mx-1"></i> in Pakistan. All rights reserved.</p>
+    <div class="payment-badges">
+      <span class="payment-badge">COD</span>
+      <span class="payment-badge">Easypaisa</span>
+      <span class="payment-badge">JazzCash</span>
+      <span class="payment-badge">Bank Transfer</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="cart-header">
+    <h2>Your Cart <span id="cartItemCount">0 items</span></h2>
+    <button class="btn-close-cart" id="closeCartBtn" aria-label="Close cart"><i class="bi bi-x-lg"></i></button>
+  </div>
+
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon"><i class="bi bi-cart-x"></i></div>
+      <p>Your cart is empty.<br>Discover our collection above.</p>
+    </div>
+    <div id="cartItemsList"></div>
+  </div>
+
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <label>Order Total</label>
+      <span class="cart-total-price" id="cartTotal">Rs. 0</span>
+    </div>
+    <p class="cart-note">Free delivery on orders above Rs. 1,500 · COD available</p>
+    <button class="btn-checkout" id="checkoutBtn">
+      <span>Proceed to Checkout <i class="bi bi-arrow-right"></i></span>
+    </button>
+  </div>
+</aside>
+
+<div class="modal-overlay" id="productModalOverlay">
+  <div class="product-modal" id="productModal">
+    <button class="modal-close" id="closeModalBtn" aria-label="Close modal"><i class="bi bi-x-lg"></i></button>
+    <div class="modal-img-col">
+      <img id="modalImg" src="" alt="" />
+    </div>
+    <div class="modal-content-col">
+      <span class="modal-badge" id="modalBadge"></span>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-subtitle" id="modalSubtitle"></p>
+      <div class="modal-stars" id="modalStars"></div>
+      <p class="modal-price" id="modalPrice"></p>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-how-to">
+        <h4>How to Use</h4>
+        <ol id="modalHowTo"></ol>
+      </div>
+      <button class="modal-atc-btn" id="modalAtcBtn">
+        <i class="bi bi-sparkles"></i> Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-modal">
+    <div class="checkout-header">
+      <h2>Checkout
+        <span>Secure Order Placement</span>
+      </h2>
+      <button class="btn-close-checkout" id="closeCheckoutBtn" aria-label="Close checkout"><i class="bi bi-x-lg"></i></button>
+    </div>
+
+    <div class="checkout-body">
+      <div class="checkout-summary">
+        <h4>Order Summary</h4>
+        <div class="checkout-summary-items" id="checkoutSummaryItems"></div>
+        <div class="checkout-total-row">
+          <label>Grand Total</label>
+          <strong id="checkoutGrandTotal">Rs. 0</strong>
+        </div>
+      </div>
+
+      <form method="POST" action="" id="checkoutForm">
+        {% csrf_token %}
+        <input type="hidden" name="cart_summary" id="cartSummaryInput" />
+
+        <div class="form-group">
+          <label for="cName">Full Name</label>
+          <input class="form-control" type="text" id="cName" name="name" placeholder="e.g. Umer" required />
+        </div>
+
+        <div class="form-group">
+          <label for="cPhone">Phone Number</label>
+          <input class="form-control" type="tel" id="cPhone" name="phone" placeholder="e.g. 0300-1234567" required />
+        </div>
+
+        <div class="form-group">
+          <label for="cAddress">Delivery Address</label>
+          <textarea class="form-control" id="cAddress" name="address" rows="3" placeholder="House #, Street, City, Province" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Payment Method</label>
+          <div class="payment-options">
+            <div class="payment-opt">
+              <input type="radio" id="cod" name="payment_method" value="COD" checked />
+              <label for="cod">
+                <i class="bi bi-cash-stack"></i>
+                Cash on Delivery
+              </label>
+            </div>
+            <div class="payment-opt">
+              <input type="radio" id="bank" name="payment_method" value="Bank Transfer" />
+              <label for="bank">
+                <i class="bi bi-bank"></i>
+                Bank Transfer
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-place-order">
+          <i class="bi bi-sparkles"></i> &nbsp;Place My Order
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="checkout-overlay" id="faqModal">
+  <div class="checkout-modal" style="max-width: 500px;">
+    <div class="checkout-header">
+      <h2>Ask a Question <span>We are here to help</span></h2>
+      <button class="btn-close-checkout" onclick="closePolicyModal('faqModal')"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="checkout-body">
+      <form onsubmit="event.preventDefault(); closePolicyModal('faqModal'); showToast('✦ Your question has been sent! We will email you shortly.');">
+        <div class="form-group">
+          <label>Your Email Address</label>
+          <input class="form-control" type="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label>Your Question</label>
+          <textarea class="form-control" rows="4" required placeholder="How can we help you?"></textarea>
+        </div>
+        <button type="submit" class="btn-place-order"><i class="bi bi-send"></i> &nbsp; Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="checkout-overlay" id="shippingModal">
+  <div class="checkout-modal" style="max-width: 500px;">
+    <div class="checkout-header">
+      <h2>Shipping Policy <span>Delivery Information</span></h2>
+      <button class="btn-close-checkout" onclick="closePolicyModal('shippingModal')"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="checkout-body" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
+      <p><strong>Delivery Charges:</strong> A flat delivery rate of <strong>PKR 200</strong> applies to all orders nationwide.</p>
+      <div style="background: rgba(201,168,76,0.1); padding: 15px; border-radius: 12px; border-left: 4px solid var(--gold); margin-top: 1.5rem;">
+        <p style="color: var(--green-deep); margin: 0; font-weight: 500;">
+          <i class="bi bi-info-circle-fill text-warning"></i> <strong>Advance Payment Required:</strong> To confirm your order and ensure quick dispatch, the delivery charges (PKR 200) must be paid in advance. The remaining balance for your products will be collected via Cash on Delivery (COD).
+        </p>
+      </div>
+      <p style="margin-top: 1.5rem; margin-bottom: 0;"><strong>Dispatch Time:</strong> Orders are processed and dispatched within 24 hours of receiving the advance delivery fee.</p>
+    </div>
+  </div>
+</div>
+
+<div class="checkout-overlay" id="returnModal">
+  <div class="checkout-modal" style="max-width: 500px;">
+    <div class="checkout-header">
+      <h2>Returns Policy <span>Our Guarantee</span></h2>
+      <button class="btn-close-checkout" onclick="closePolicyModal('returnModal')"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="checkout-body" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
+      <p>We stand behind the luxury and quality of AL-TAJ products. You can return or exchange any unused and sealed product within <strong>7 days</strong> of delivery.</p>
+      <div style="background: rgba(192, 57, 43, 0.08); padding: 15px; border-radius: 12px; border-left: 4px solid #c0392b; margin-top: 1.5rem;">
+        <p style="color: #c0392b; margin: 0; font-weight: 500;">
+          <i class="bi bi-exclamation-triangle-fill"></i> <strong>Important Courier Instruction:</strong> If the courier hands you a parcel that appears damaged, opened, or leaked, <strong>DO NOT ACCEPT IT</strong>. Please reject the parcel at your doorstep and immediately lodge a complaint with our support team.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="checkout-overlay" id="contactModal">
+  <div class="checkout-modal" style="max-width: 500px; text-align: center;">
+    <div class="checkout-header" style="justify-content: flex-end; padding-bottom: 0;">
+      <button class="btn-close-checkout" onclick="closePolicyModal('contactModal')"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="checkout-body" style="padding-top: 0;">
+      <i class="bi bi-headset" style="font-size: 3.5rem; color: var(--green-light);"></i>
+      <h2 style="font-family: var(--font-display); color: var(--green-deep); font-size: 2rem; margin-bottom: 1.5rem;">We're here to help!</h2>
+      
+      <div style="background: var(--cream); border: 1px solid rgba(201,168,76,0.2); padding: 1.5rem; border-radius: 16px; margin-bottom: 1rem;">
+        <p style="font-size: 1.1rem; color: var(--green-deep); margin-bottom: 0.5rem;"><i class="bi bi-whatsapp text-success"></i> <strong>WhatsApp:</strong></p>
+        <p style="color: var(--text-muted); margin: 0;">+92 300 1234567</p>
+      </div>
+      
+      <div style="background: var(--cream); border: 1px solid rgba(201,168,76,0.2); padding: 1.5rem; border-radius: 16px; margin-bottom: 1rem;">
+        <p style="font-size: 1.1rem; color: var(--green-deep); margin-bottom: 0.5rem;"><i class="bi bi-envelope text-warning"></i> <strong>Email:</strong></p>
+        <p style="color: var(--text-muted); margin: 0;">support@altajoil.pk</p>
+      </div>
+
+      <div style="background: var(--cream); border: 1px solid rgba(201,168,76,0.2); padding: 1.5rem; border-radius: 16px;">
+        <p style="font-size: 1.1rem; color: var(--green-deep); margin-bottom: 0.5rem;"><i class="bi bi-geo-alt-fill text-danger"></i> <strong>Head Office:</strong></p>
+        <p style="color: var(--text-muted); margin: 0;">Rahim Yar Khan, Pakistan</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+/* -----------------------------------------------
+   PRODUCTS DATA
+----------------------------------------------- */
+const products = [
+  {
+    id: 1,
+    name: "Onion Black Seed Oil",
+    subtitle: "Hair Growth & Anti-Thinning Formula",
+    badge: "Best Seller",
+    stars: '<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>',
+    rating: "4.9",
+    price: 1200,
+    img: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=700&q=80",
+    desc: "A potent blend of cold-pressed onion extract and black seed oil, clinically proven to reduce hair fall by up to 72% in 8 weeks. Rich in quercetin and thymoquinone, this formula awakens dormant follicles, fortifies the hair shaft, and promotes dense, lustrous new growth.",
+    howTo: [
+      "Part hair into sections and apply generously to the scalp.",
+      "Massage in slow circular motions for 5–10 minutes to stimulate blood flow.",
+      "Leave on for a minimum of 2 hours — overnight for intensive care.",
+      "Wash off with a mild, sulphate-free shampoo.",
+      "Use 2–3 times per week for visible results within 30 days."
+    ]
+  },
+  {
+    id: 2,
+    name: "Argan Silk Elixir",
+    subtitle: "Deep Nourishment & Shine Restoration",
+    badge: "New Formula",
+    stars: '<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>',
+    rating: "4.8",
+    price: 1450,
+    img: "https://images.unsplash.com/photo-1519415943484-9fa1873496d4?w=700&q=80",
+    desc: "Liquid gold from the Moroccan Argan forests, blended with our signature botanical complex. This ultra-lightweight elixir penetrates deep into the cortex to restore moisture balance, eliminate frizz, and leave every strand with mirror-like shine and exceptional softness.",
+    howTo: [
+      "Apply 3–5 drops to damp or dry hair, focusing on mid-lengths to ends.",
+      "Spread evenly using fingers or a wide-tooth comb.",
+      "Style as usual — blow-dry, air-dry, or straighten.",
+      "For an intensive mask, apply generously and wrap in a warm towel for 30 minutes.",
+      "Rinse thoroughly. Use daily as a leave-in, or weekly as a mask."
+    ]
+  },
+  {
+    id: 3,
+    name: "Herbal Scalp Revival",
+    subtitle: "Anti-Dandruff & Scalp Detox Blend",
+    badge: "Dermatologist Tested",
+    stars: '<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>',
+    rating: "4.7",
+    price: 1100,
+    img: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=700&q=80",
+    desc: "A medicinal-grade blend of neem, tea tree, rosemary, fenugreek, and brahmi, crafted to restore scalp health at its root. This formula eliminates dandruff, soothes itchiness, regulates sebum production, and creates the ideal environment for healthy, long-term hair growth.",
+    howTo: [
+      "Apply directly to the scalp using the dropper tip or fingertips.",
+      "Focus on problem areas — flaky zones, oily patches, or irritated skin.",
+      "Gently massage for 7 minutes to allow absorption.",
+      "Leave on for at least 3 hours or overnight for best results.",
+      "Shampoo and condition normally. Use 3× per week."
+    ]
+  },
+  {
+    id: 4,
+    name: "Amla Gold Fortifier",
+    subtitle: "Strength, Length & Premature Greying",
+    badge: "Heritage Formula",
+    stars: '<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>',
+    rating: "4.9",
+    price: 1350,
+    img: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=700&q=80",
+    desc: "The crown jewel of Ayurvedic hair care. Our triple-refined Amla (Indian Gooseberry) oil is saturated with Vitamin C, tannins, and flavonoids that strengthen hair from root to tip, prevent premature greying, and dramatically increase hair length and density over consistent use.",
+    howTo: [
+      "Warm a generous amount between your palms before applying.",
+      "Work through the scalp and along the full length of the hair.",
+      "Pay special attention to temples and the crown area.",
+      "Leave on for a minimum of 4 hours — overnight is ideal.",
+      "Shampoo twice to remove. Use 2–3 times per week."
+    ]
+  }
+];
+
+/* -----------------------------------------------
+   CART STATE
+----------------------------------------------- */
+let cart = [];
+let activeProductId = null;
+
+/* -----------------------------------------------
+   RENDER PRODUCTS
+----------------------------------------------- */
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = products.map(p => `
+    <div class="product-card reveal" data-id="${p.id}" role="article">
+      <div class="product-img-wrap">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" />
+        <span class="product-badge">${p.badge}</span>
+        <div class="product-quick-view">View Details ↗</div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">${p.name}</h3>
+        <p class="product-sub">${p.subtitle}</p>
+        <div class="product-stars">${p.stars} <small style="font-size:.7rem;color:var(--text-muted);font-family:var(--font-body)">(${p.rating})</small></div>
+        <div class="product-footer">
+          <div class="product-price">
+            <small>PKR</small>
+            ${p.price.toLocaleString()}
+          </div>
+          <button class="btn-add-cart" data-id="${p.id}">
+            + Add
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Bind card clicks (open modal)
+  grid.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('click', e => {
+      if (e.target.classList.contains('btn-add-cart') || e.target.closest('.btn-add-cart')) return;
+      const id = parseInt(card.dataset.id);
+      openProductModal(id);
+    });
+  });
+
+  // Bind add-to-cart buttons on cards
+  grid.querySelectorAll('.btn-add-cart').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      addToCart(parseInt(btn.dataset.id));
+    });
+  });
+
+  // Trigger reveal for newly rendered cards
+  initReveal();
+}
+
+/* -----------------------------------------------
+   PRODUCT MODAL
+----------------------------------------------- */
+function openProductModal(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  activeProductId = id;
+
+  document.getElementById('modalImg').src = p.img;
+  document.getElementById('modalImg').alt = p.name;
+  document.getElementById('modalBadge').textContent = p.badge;
+  document.getElementById('modalTitle').textContent = p.name;
+  document.getElementById('modalSubtitle').textContent = p.subtitle;
+  document.getElementById('modalStars').innerHTML = `${p.stars} <small style="font-size:.75rem;color:var(--text-muted);font-family:var(--font-body)">${p.rating} / 5.0</small>`;
+  document.getElementById('modalPrice').textContent = `PKR ${p.price.toLocaleString()}`;
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalHowTo').innerHTML = p.howTo.map((step, i) =>
+    `<li data-n="${i + 1}">${step}</li>`
+  ).join('');
+
+  document.getElementById('productModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal() {
+  document.getElementById('productModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('closeModalBtn').addEventListener('click', closeProductModal);
+document.getElementById('productModalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('productModalOverlay')) closeProductModal();
+});
+
+document.getElementById('modalAtcBtn').addEventListener('click', () => {
+  if (activeProductId) {
+    addToCart(activeProductId);
+    closeProductModal();
+  }
+});
+
+/* -----------------------------------------------
+   CART LOGIC
+----------------------------------------------- */
+function addToCart(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  const existing = cart.find(x => x.id === id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ ...p, qty: 1 });
+  }
+  renderCart();
+  updateCartBadge();
+  openCart();
+  showToast(`✦ ${p.name} added to cart`);
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(x => x.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
+  renderCart();
+  updateCartBadge();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(x => x.id !== id);
+  renderCart();
+  updateCartBadge();
+}
+
+function getCartTotal() {
+  return cart.reduce((s, i) => s + i.price * i.qty, 0);
+}
+
+function getTotalItems() {
+  return cart.reduce((s, i) => s + i.qty, 0);
+}
+
+function renderCart() {
+  const list = document.getElementById('cartItemsList');
+  const empty = document.getElementById('cartEmpty');
+  const footer = document.getElementById('cartFooter');
+  const countEl = document.getElementById('cartItemCount');
+
+  if (cart.length === 0) {
+    list.innerHTML = '';
+    empty.style.display = 'flex';
+    footer.style.display = 'none';
+    countEl.textContent = '0 items';
+  } else {
+    empty.style.display = 'none';
+    footer.style.display = 'block';
+    const n = getTotalItems();
+    countEl.textContent = `${n} item${n !== 1 ? 's' : ''}`;
+    list.innerHTML = cart.map(item => `
+      <div class="cart-item" data-id="${item.id}">
+        <img class="cart-item-img" src="${item.img}" alt="${item.name}" loading="lazy" />
+        <div class="cart-item-details">
+          <p class="cart-item-name">${item.name}</p>
+          <p class="cart-item-sub">${item.subtitle}</p>
+          <div class="cart-qty-controls">
+            <button class="qty-btn" data-id="${item.id}" data-delta="-1">−</button>
+            <span class="qty-val">${item.qty}</span>
+            <button class="qty-btn" data-id="${item.id}" data-delta="1">+</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between">
+          <p class="cart-item-price">Rs. ${(item.price * item.qty).toLocaleString()}</p>
+          <button class="btn-remove" data-id="${item.id}">Remove</button>
+        </div>
+      </div>
+    `).join('');
+
+    // Bind qty controls
+    list.querySelectorAll('.qty-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        changeQty(parseInt(btn.dataset.id), parseInt(btn.dataset.delta));
+      });
+    });
+
+    list.querySelectorAll('.btn-remove').forEach(btn => {
+      btn.addEventListener('click', () => removeFromCart(parseInt(btn.dataset.id)));
+    });
+  }
+
+  document.getElementById('cartTotal').textContent = `Rs. ${getCartTotal().toLocaleString()}`;
+}
+
+function updateCartBadge() {
+  const n = getTotalItems();
+  const badge = document.getElementById('cartBadge');
+  badge.textContent = n;
+  badge.style.transform = 'scale(1.5)';
+  setTimeout(() => badge.style.transform = 'scale(1)', 300);
+}
+
+/* -----------------------------------------------
+   CART DRAWER
+----------------------------------------------- */
+function openCart() {
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('cartBtn').addEventListener('click', openCart);
+document.getElementById('closeCartBtn').addEventListener('click', closeCart);
+document.getElementById('cartOverlay').addEventListener('click', closeCart);
+
+/* -----------------------------------------------
+   CHECKOUT MODAL
+----------------------------------------------- */
+document.getElementById('checkoutBtn').addEventListener('click', () => {
+  if (cart.length === 0) return;
+
+  // Populate summary
+  const summaryEl = document.getElementById('checkoutSummaryItems');
+  summaryEl.innerHTML = cart.map(item =>
+    `<span><span>${item.name} × ${item.qty}</span><span>Rs. ${(item.price * item.qty).toLocaleString()}</span></span>`
+  ).join('');
+
+  document.getElementById('checkoutGrandTotal').textContent = `Rs. ${getCartTotal().toLocaleString()}`;
+
+  // Fill hidden cart_summary field (Django-ready JSON)
+  const summary = {
+    items: cart.map(i => ({ id: i.id, name: i.name, qty: i.qty, price: i.price, subtotal: i.price * i.qty })),
+    total: getCartTotal()
+  };
+  document.getElementById('cartSummaryInput').value = JSON.stringify(summary);
+
+  document.getElementById('checkoutOverlay').classList.add('open');
+});
+
+document.getElementById('closeCheckoutBtn').addEventListener('click', () => {
+  document.getElementById('checkoutOverlay').classList.remove('open');
+});
+
+document.getElementById('checkoutOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('checkoutOverlay')) {
+    document.getElementById('checkoutOverlay').classList.remove('open');
+  }
+});
+
+
+
+/* -----------------------------------------------
+   NAVBAR: sticky scroll effect
+----------------------------------------------- */
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled', window.scrollY > 80);
+}, { passive: true });
+
+/* -----------------------------------------------
+   HAMBURGER
+----------------------------------------------- */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+/* -----------------------------------------------
+   POLICY MODALS JS
+----------------------------------------------- */
+function openPolicyModal(id) {
+  const modal = document.getElementById(id);
+  if(modal) {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closePolicyModal(id) {
+  const modal = document.getElementById(id);
+  if(modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+// Close policy modals if clicked outside
+['faqModal', 'shippingModal', 'returnModal', 'contactModal'].forEach(id => {
+  const el = document.getElementById(id);
+  if(el) {
+    el.addEventListener('click', e => {
+      if (e.target === el) closePolicyModal(id);
+    });
+  }
+});
+
+
+/* -----------------------------------------------
+   TOAST
+----------------------------------------------- */
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.innerHTML = `<i class="bi bi-info-circle"></i> &nbsp;${msg}`;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+/* -----------------------------------------------
+   SCROLL REVEAL
+----------------------------------------------- */
+function initReveal() {
+  const els = document.querySelectorAll('.reveal:not(.visible)');
+  if (!els.length) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => observer.observe(el));
+}
+
+/* -----------------------------------------------
+     INIT
+  ----------------------------------------------- */
+  renderProducts();
+  initReveal();
+  </script>
+  {% if messages %}
+    <style>
+      /* Animated Tick CSS */
+      .success-animation { margin: 0 auto 1.5rem; width: 90px; height: 90px; }
+      .checkmark { width: 90px; height: 90px; border-radius: 50%; display: block; stroke-width: 2.5; stroke: #2d6e47; stroke-miterlimit: 10; box-shadow: inset 0px 0px 0px #2d6e47; animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; position: relative; top: 5px; right: 5px; margin: 0 auto; }
+      .checkmark__circle { stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2.5; stroke-miterlimit: 10; stroke: #2d6e47; fill: none; animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; }
+      .checkmark__check { transform-origin: 50% 50%; stroke-dasharray: 48; stroke-dashoffset: 48; animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards; }
+
+      @keyframes stroke { 100% { stroke-dashoffset: 0; } }
+      @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
+      @keyframes fill { 100% { box-shadow: inset 0px 0px 0px 50px rgba(45, 110, 71, 0.08); } }
+      
+      /* New Dedicated Modal Box */
+      .vip-success-box {
+        background: var(--cream);
+        border: 1px solid rgba(201,168,76,0.4);
+        border-radius: 24px;
+        width: 100%;
+        max-width: 420px;
+        text-align: center;
+        padding: 3.5rem 2.5rem;
+        box-shadow: 0 40px 100px rgba(10,25,16,0.6);
+        position: relative;
+        transform: scale(0.9) translateY(20px);
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+
+    <div class="modal-overlay" id="successModalOverlay" style="z-index: 9999;">
+      <div class="vip-success-box" id="successModalBox">
+        
+        <button class="modal-close" onclick="closeSuccessModal()" aria-label="Close modal" style="position: absolute; top: 15px; right: 15px;"><i class="bi bi-x-lg"></i></button>
+        
+        <div class="success-animation">
+          <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+        
+        <h2 style="font-family: var(--font-display); font-size: 3.2rem; color: var(--green-deep); margin-bottom: 0.5rem; line-height: 1; font-weight: 500;">Thank You!</h2>
+        <div style="width: 40px; height: 2px; background: var(--gold); margin: 0 auto 1.5rem;"></div>
+        
+        {% for message in messages %}
+          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2.5rem; font-weight: 300;">{{ message }}</p>
+        {% endfor %}
+        
+        <button class="btn-primary" style="width: 100%; justify-content: center; font-size: 0.85rem; padding: 18px; border-radius: 50px;" onclick="closeSuccessModal()">
+          <i class="bi bi-stars"></i> &nbsp; Explore More
+        </button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          document.getElementById("successModalOverlay").classList.add("open");
+          setTimeout(() => {
+            document.getElementById("successModalBox").style.transform = "scale(1) translateY(0)";
+          }, 50);
+      });
+
+      function closeSuccessModal() {
+          document.getElementById("successModalBox").style.transform = "scale(0.9) translateY(20px)";
+          setTimeout(() => {
+            document.getElementById("successModalOverlay").classList.remove("open");
+          }, 300);
+      }
+    </script>
+  {% endif %}
+</body>
+</html>
